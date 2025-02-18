@@ -10,6 +10,7 @@ RUN           unzip /tmp/frontend.zip -d  /usr/share/nginx/html/
 
 
 
+
 # docker run -it docker.io/nginx/bash
 #
 # docker rm -f $(docker ps -qa)
