@@ -25,7 +25,6 @@ COPY          frontend/* /app/
 FROM          docker.io/nginx:1.24
 RUN           apt-get update && apt-get install unzip -y
 RUN           rm -rf /usr/share/nginx/html/*
-RUN           mkdir /usr/share/nginx/html
 WORKDIR       /usr/share/nginx/html
 COPY          --from=build-steps /app /usr/share/nginx/html/
 ADD           roboshop.conf /etc/nginx/default.d/roboshop.conf
