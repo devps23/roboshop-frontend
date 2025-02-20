@@ -28,6 +28,7 @@ RUN           rm -rf /usr/share/nginx/html/* /etc/nginx/default.d/default.conf
 WORKDIR       /usr/share/nginx/html
 COPY          --from=build-steps /app /usr/share/nginx/html/
 ADD           roboshop.conf /etc/nginx/default.d/default.conf
+WORKDIR       /
 
 
 
