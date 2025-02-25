@@ -17,18 +17,25 @@
 
 # In Multi stage docker
 #stage1
-FROM          redhat/ubi9 As build-steps
-WORKDIR       /app
-COPY          frontend/* /app/
-#stage2
+# FROM          redhat/ubi9 As build-steps
+# WORKDIR       /app
+# COPY          frontend/* /app/
+# #stage2
+#
+# FROM          docker.io/nginx:1.24
+# RUN           apt-get update && apt-get install unzip -y
+# RUN           rm -rf /usr/share/nginx/html/* /etc/nginx/default.d/default.conf
+# WORKDIR       /usr/share/nginx/html
+# COPY          --from=build-steps /app /usr/share/nginx/html/
+# ADD           roboshop.conf /etc/nginx/default.d/default.conf
+# WORKDIR       /
 
-FROM          docker.io/nginx:1.24
-RUN           apt-get update && apt-get install unzip -y
-RUN           rm -rf /usr/share/nginx/html/* /etc/nginx/default.d/default.conf
-WORKDIR       /usr/share/nginx/html
-COPY          --from=build-steps /app /usr/share/nginx/html/
-ADD           roboshop.conf /etc/nginx/default.d/default.conf
-WORKDIR       /
+
+ FROM                     nginx:alpine3.21-slim As build-steps
+ RUN                      rm -rf /usr/share/nginx/html/*
+ RUN                      apk update && apk add unzip
+ WORKDIR                  /usr/share/nginx/html
+ ADD                      https://roboshop-artifacts.s3.amazonaws.com/frontend.zip  /tmp/frontend.zip
 
 
 
