@@ -4,10 +4,9 @@ steps for external DNS
 * External DNS is created as a pod in eks cluster
 * once created , External DNS starts monitor for kubernetes resource like service,pods,ingress,..
 * External DNS creates records in Route53 based on annotations
-
 here there is a "Service Account" , this kind can use for IAM role permissions
-
 now to create external DNS in eks cluster required role permissions
+* kubectl apply -f external-dns.yaml
 * create an iam policy in eks cluster:
   ====================================
 * resource "aws_iam_policy" "policy" {
@@ -42,8 +41,5 @@ now to create external DNS in eks cluster required role permissions
   
 }
 }
-
-
-
 * then kubectl logs "external-dns"
-* here to add dns records in route 53 add "annotations" in 
+* here to add dns records in route 53 add "annotations" in an argocd 
