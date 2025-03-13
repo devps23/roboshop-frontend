@@ -31,7 +31,7 @@
 # WORKDIR       /
 
 
- FROM                     nginx:alpine3.21-slim As build-steps
+ FROM                     docker.io/nginx:alpine3.21-slim As build-steps
  RUN                      rm -rf /usr/share/nginx/html/*
  RUN                      apk update && apk add unzip
  WORKDIR                  /tmp
@@ -42,7 +42,7 @@
  RUN                      rm -rf /tmp/frontend.zip
  WORKDIR                  /
 
- FROM                     nginx:alpine-slim
+ FROM                     docker.io/nginx:alpine-slim
  WORKDIR                  /usr/share/nginx/html
  COPY                     --from=build-steps /usr/share/nginx/html/  /usr/share/nginx/html/
  COPY                     roboshop.conf  /etc/nginx/default.d/roboshop.conf

@@ -43,3 +43,11 @@ now to create external DNS in eks cluster required role permissions
 }
 * then kubectl logs "external-dns"
 * here to add dns records in route 53 add "annotations" in an argocd 
+
+roboshop frontend reverse proxy configuration is different:
+===========================================================
+* go to cd /usr/nginx
+* conf.d/default.conf
+* copy the complete and configuration and paste it into roboshop.conf in roboshop frontend
+* copy upto "error_page" and then after this "copy reverse proxy configuration".
+* 
