@@ -15,7 +15,7 @@ metadata:
   name: 02-pod
 spec:
   initContainers:
-    - name: docker_image
+    - name: nginx-image
       image: pavanidevops78/kubernetes:v1
   containers:
     - name: nginx
