@@ -35,11 +35,11 @@ spec:
       image: pavanidevops78/kubernetes:v1
       volumeMounts:
         - name: nginx-volume
-          mountPath: /data
+          mountPath: /usr/share/nginx/html
   containers:
     - name: nginx
       image: nginx
       volumeMounts:
         - name: nginx-volume
-          mountPath: /data
+          mountPath: /usr/share/nginx/html
 
