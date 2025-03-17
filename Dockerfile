@@ -1,5 +1,5 @@
-FROM             nginx
+FROM             docker.io/nginx
 RUN              rm -rf /usr/share/nginx/html/*
-COPY             run.sh /
-ENTRYPOINT      ["bash","/run.sh"]
+COPY             index.html /usr/share/nginx/html
+
 
