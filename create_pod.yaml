@@ -31,7 +31,7 @@ spec:
     - name: nginx-volume
       emptyDir:
   initContainers:
-    - name: nginx
+    - name: nginx-init
       image: pavanidevops78/kubernetes:v1
       volumeMounts:
         - name: nginx-volume
