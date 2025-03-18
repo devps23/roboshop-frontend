@@ -1,4 +1,5 @@
-FROM             redhat/ubi9
+FROM             docker.io/nginx
+RUN              rm -rf /usr/share/nginx/html/*
 COPY             run.sh /
 ENTRYPOINT       ["bash","/run.sh"]
 
