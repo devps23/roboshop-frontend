@@ -33,7 +33,6 @@ spec:
       volumeMounts:
         - name: nginx-path
           mountPath: /usr/share/nginx/html
-  initContainers:
     - name: nginx-content
       image: pavanidevops78/kubernetes:v1
       volumeMounts:
