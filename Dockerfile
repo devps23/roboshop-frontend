@@ -1,4 +1,5 @@
 FROM             redhat/ubi9
-COPY             index.html /usr/share/nginx/html
+COPY             run.sh /
+ENTRYPOINT       ["bash","/run.sh"]
 
 
