@@ -16,10 +16,20 @@ metadata:
 spec:
   initContainers:
     - name: nginx-image
-      image: pavanidevops78/kubernetes:v1
+      image: pavanidevops78/kubernetes:v3
+      volumeMounts:
+        - name: nginx-path
+          mountPath: /usr/share/nginx/html
   containers:
     - name: nginx
+      imagePullPolicy: Always
       image: nginx
+      volumeMounts:
+        - name: nginx-path
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: nginx-path
+      emptyDir: {}
 
 ---
 #apiVersion: v1
