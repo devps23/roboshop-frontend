@@ -9,37 +9,37 @@
 
 
 #---
-#apiVersion: v1
-#kind: Pod
-#metadata:
-#  name: 02-pod
-#spec:
-#  initContainers:
-#    - name: nginx-image
-#      image: pavanidevops78/kubernetes:v1
-#  containers:
-#    - name: nginx
-#      image: nginx
-#
-#---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-03
+  name: 02-pod
 spec:
+  initContainers:
+    - name: nginx-image
+      image: pavanidevops78/kubernetes:v1
   containers:
     - name: nginx
       image: nginx
-      volumeMounts:
-        - name: nginx-path
-          mountPath: /usr/share/nginx/html
-    - name: nginx-content
-      image: pavanidevops78/kubernetes:v1
-      volumeMounts:
-        - name: nginx-path
-          mountPath: /usr/share/nginx/html
 
-  volumes:
-    - name: nginx-path
-      emptyDir: {}
+---
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#  name: pod-03
+#spec:
+#  containers:
+#    - name: nginx
+#      image: nginx
+#      volumeMounts:
+#        - name: nginx-path
+#          mountPath: /usr/share/nginx/html
+#    - name: nginx-content
+#      image: pavanidevops78/kubernetes:v1
+#      volumeMounts:
+#        - name: nginx-path
+#          mountPath: /usr/share/nginx/html
+#
+#  volumes:
+#    - name: nginx-path
+#      emptyDir: {}
 
