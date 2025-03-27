@@ -1,4 +1,4 @@
-FROM                         docker.io/nginx:latest
+FROM                         docker.io/nginx
 RUN                          rm -rf /usr/share/nginx/html/* /etc/nginx/default.d/roboshop.conf
 RUN                          apt update && apt install -y unzip curl
 
