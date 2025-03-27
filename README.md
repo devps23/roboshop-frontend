@@ -50,4 +50,14 @@ roboshop frontend reverse proxy configuration is different:
 * conf.d/default.conf
 * copy the complete and configuration and paste it into roboshop.conf in roboshop frontend
 * copy upto "error_page" and then after this "copy reverse proxy configuration".
-* 
+
+
+Steps for frontend;
+===================
+* go to frontend container
+* cd /etc/nginx/conf.d/default.d ---- copy the content and paste in roboshop.conf file
+
+FROM  docker.io/nginx
+RUN   rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
+COPY   ./  /usr/share/nginx/html/
+ADD    roboshop.conf   /etc/nginx/conf.d/default.conf

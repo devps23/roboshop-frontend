@@ -1,5 +1,8 @@
-FROM          docker.io/nginx
-RUN           rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf /etc/nginx/nginx.conf
-COPY          ./ /usr/share/nginx/html/
-ADD           roboshop.conf /etc/nginx/conf.d/default.conf
-ADD           nginx.conf /etc/nginx/nginx.conf
+FROM                         docker.io/nginx:latest
+RUN                          rm -rf /usr/share/nginx/html/* /etc/nginx/default.d/roboshop.conf
+WORKDIR                      /tmp
+RUN                          curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+RUN                          unzip /tmp/frontend.zip
+WORKDIR                      /usr/share/nginx/html
+RUN                          mv /tmp/*    /usr/share/nginx/html/
+
