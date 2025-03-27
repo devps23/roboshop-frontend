@@ -12,7 +12,7 @@
  FROM                     docker.io/nginx:alpine-slim
  WORKDIR                  /usr/share/nginx/html
  COPY                     --from=build-steps /usr/share/nginx/html/  /usr/share/nginx/html/
- COPY                     roboshop.conf  /etc/nginx/default.d/roboshop.conf
+ COPY                     roboshop.conf  /etc/nginx/default.d/default.conf
  ADD                      nginx.conf /etc/nginx/nginx.conf
 
 
